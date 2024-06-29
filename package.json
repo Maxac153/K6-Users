@@ -1,0 +1,22 @@
+{
+  "name": "k6-users",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "engines": {
+    "node": "20"
+  },
+  "license": "ISC",
+  "description": "Load Testing K6",
+  "dependencies": {
+    "@types/k6": "~0.48.0",
+    "typescript": "^5.5.2"
+  },
+  "devDependencies": {
+    "@types/faker": "^6.6.9",
+    "@types/node": "^20.14.9"
+  }
+}
