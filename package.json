@@ -12,8 +12,7 @@
   "license": "ISC",
   "description": "Load Testing K6",
   "dependencies": {
-    "@types/k6": "~0.48.0",
-    "typescript": "^5.5.2"
+    "@types/k6": "~0.48.0"
   },
   "devDependencies": {
     "@types/faker": "^6.6.9",

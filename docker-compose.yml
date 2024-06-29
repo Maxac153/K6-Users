@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+
+  influxdb:
+    image: influxdb:2.7
+    container_name: k6-influxdb
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=mydb
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin
+    ports:
+      - "8086:8086"
+    networks:
+      - metric_network
+
+  grafana:
+    image: grafana/grafana:11.0.0
+    container_name: k6-grafana
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    ports:
+      - "3000:3000"
+    depends_on:
+      - influxdb
+    networks:
+      - metric_network
+
+volumes:
+  influxdb-storage:
+  grafana-storage:
+
+
+networks:
+  metric_network:
+    driver: bridge
